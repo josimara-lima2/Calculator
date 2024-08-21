@@ -1,7 +1,7 @@
 /*usando variavel*/
 :root{
     --bg-button: #f0f0f0;
-    --border-button: solid 1px #888;
+    --border-button: 1px solid #4c4c4c;
 }
 
 .button{
@@ -11,6 +11,11 @@
     border-right: var(--border-button);
     border-bottom: var(--border-button);
     outline: none;
+    
+}
+
+.button:hover{
+    cursor: pointer;
 }
 
 .button:active{

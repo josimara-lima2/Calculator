@@ -27,7 +27,8 @@ constructor(props){
         this.setState({...initialState})
     }
 
-    setOperation(operation){
+    setOperation(operation) {
+        
        if(this.state.current === 0){
            this.setState({operation, current:1, clearDisplay:true})
        }else{
@@ -46,15 +47,21 @@ constructor(props){
             case '*': 
                 values[0] = values[0] * values[1]
                 break;
-            case '/':
-                values[0]= values[0] / values[1]
+               case '/':
+                   if (values[1] === 0) {
+                        values[0]= 'Error'
+                   } else {
+                       
+                       values[0]= values[0] / values[1]
+                   }
                 break;
             default: break;
            }
-           if(isNaN(values[0]) || !isFinite(values[0])) {
+           if((isNaN(values[0]) || !isFinite(values[0]) ) && values[0] !== 'Error') {
                this.clearMemory()
                return
-           }
+           } 
+           
            
            values[1]=0
 
